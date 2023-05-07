@@ -35,11 +35,12 @@ public:
     ~ArrayPtr() {
         delete[]raw_ptr_;
         raw_ptr_ = nullptr;
+        
     }
 
-    ArrayPtr(const ArrayPtr&) = default;
+    ArrayPtr(const ArrayPtr&) = delete;
     
-    ArrayPtr& operator=(const ArrayPtr&) = default;
+    ArrayPtr& operator=(const ArrayPtr&) = delete;
 
     ArrayPtr(ArrayPtr&& other) {
         raw_ptr_ = std::exchange(other.raw_ptr_, nullptr);
@@ -95,3 +96,5 @@ public:
 private:
     Type* raw_ptr_ = nullptr;
 };
+
+
