@@ -107,16 +107,15 @@ public:
 
     // Возвращает ссылку на элемент с индексом index
     Type& operator[](size_t index) noexcept {
-        assert(index >= 0 && index < size_);
+        assert(index < size_);
         return vect_[index];
     }
 
     // Возвращает константную ссылку на элемент с индексом index
     const Type& operator[](size_t index) const noexcept {
-        assert(index >= 0 && index < size_);
-        if (index < size_) {
-            return vect_[index];
-        }
+        assert(index < size_);
+        return vect_[index];
+        
     }
 
     // Возвращает константную ссылку на элемент с индексом index
